@@ -3,8 +3,13 @@
 </template>
 
 <script>
-export default {
+import Delivery from '@/models/delivery.js'
 
+export default {
+  name: 'Delivery',
+  setup() {
+
+  }
 }
 </script>
 

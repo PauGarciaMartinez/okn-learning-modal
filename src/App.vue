@@ -1,7 +1,12 @@
 <template>
+
   <header>
-    
+    <img src="" alt="">
+    <button></button>
   </header>
+
+  <Modal />
+
 </template>
 
 <script>

@@ -2,7 +2,7 @@
   <div class="backdrop">
     <div class="modal">
       <h2 class="title">{{ title }}</h2>
-
+      <Input />
     </div>
   </div>
 </template>
@@ -18,6 +18,11 @@ export default {
     Input,
     Message, 
     Delivery
+  },
+  setup() {
+    let title = ref('Comentarios')
+
+    return { title }
   }
 }
 </script>
