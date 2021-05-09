@@ -11,6 +11,7 @@
 import Input from '@/components/Input'
 import Message from '@/components/Input'
 import Delivery from '@/components/Input'
+import { ref } from 'vue'
 
 export default {
   name: 'Modal',
@@ -29,12 +30,22 @@ export default {
 
 <style>
 .backdrop {
-  filter: blur(2);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(2px);
+  z-index: 10;
 }
 
 .modal {
   background-color: white;
-  width: 1200px;
+  height: 90%;
+  width: 60%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid black;
+  z-index: 2;
 }
 
 </style>
