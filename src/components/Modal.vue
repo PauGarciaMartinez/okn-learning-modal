@@ -1,6 +1,9 @@
 <template>
-  <div class="backdrop"></div>
+  <div class="backdrop" @click="closeModal"></div>
   <div class="modal">
+    <div class="close-container">
+      <i class="fas fa-times" @click="closeModal"></i>
+    </div>
     <h2 class="title">{{ title }}</h2>
     <Input />
   </div>
@@ -14,15 +17,20 @@ import { ref } from 'vue'
 
 export default {
   name: 'Modal',
+  emits: ['close-modal'],
   components: {
     Input,
     Message, 
     Delivery
   },
-  setup() {
+  setup(props, { emit }) {
     let title = ref('Comentarios')
 
-    return { title }
+    const closeModal = () => {
+      emit('close-modal', false)
+    }
+
+    return { title, closeModal }
   }
 }
 </script>
@@ -42,11 +50,26 @@ export default {
   background-color: white;
   height: 90%;
   width: 60%;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
   border-radius: 0.5rem;
   box-shadow: 5px 5px 10px rgb(218, 218, 218);
+}
+
+.close-container {
+  display: flex;
+  justify-content: flex-end;
+  height: 0.5rem;
+}
+
+.fa-times {
+  font-size: 1.5rem;
+  color: rgb(56, 190, 231);
+}
+
+.fa-times:hover {
+  cursor: pointer;
 }
 
 </style>

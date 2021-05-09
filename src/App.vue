@@ -7,7 +7,10 @@
     </button>
   </header>
 
-  <Modal v-if="visible" />
+  <Modal 
+    v-if="visible"
+    @close-modal="visible = $event"
+  />
 
 </template>
 
