@@ -68,6 +68,7 @@ header {
   color: white;
   border: 0px solid black;
   border-radius: 0.3rem;
+  outline: none;
   cursor: pointer;
   transition: 0.3s;
 }
