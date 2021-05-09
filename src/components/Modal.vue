@@ -5,14 +5,15 @@
       <i class="fas fa-times" @click="closeModal"></i>
     </div>
     <h2 class="title">{{ title }}</h2>
+    <Delivery />
     <Input />
   </div>
 </template>
 
 <script>
 import Input from '@/components/Input'
-import Message from '@/components/Input'
-import Delivery from '@/components/Input'
+import Message from '@/components/Message'
+import Delivery from '@/components/Delivery'
 import { ref } from 'vue'
 
 export default {
@@ -70,6 +71,11 @@ export default {
 
 .fa-times:hover {
   cursor: pointer;
+}
+
+.title {
+  padding-bottom: 1rem;
+  border-bottom: 2px solid black;
 }
 
 </style>

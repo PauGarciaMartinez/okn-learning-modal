@@ -7,10 +7,7 @@
     </button>
   </header>
 
-  <Modal 
-    v-if="visible"
-    @close-modal="visible = $event"
-  />
+  <Modal v-if="visible" @close-modal="visible = $event" />
 
 </template>
 
@@ -24,7 +21,7 @@ export default {
     Modal
   },
   setup() {
-    let visible = ref(false)
+    let visible = ref(true)
 
     const toggleModal = () => {
       visible.value = !visible.value
