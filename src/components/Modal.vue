@@ -5,6 +5,7 @@
       <i class="fas fa-times" @click="closeModal"></i>
     </div>
     <h2 class="title">{{ title }}</h2>
+
     <Delivery />
     <Input />
   </div>
