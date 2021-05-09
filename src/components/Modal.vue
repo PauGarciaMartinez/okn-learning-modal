@@ -70,10 +70,13 @@ export default {
 .fa-times {
   font-size: 1.5rem;
   color: rgb(56, 190, 231);
+  transition: 0.1s;
 }
 
 .fa-times:hover {
   cursor: pointer;
+  transform: scale(1.3);
+  transition: 0.1s;
 }
 
 .title {

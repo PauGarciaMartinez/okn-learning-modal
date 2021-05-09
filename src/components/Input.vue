@@ -1,19 +1,30 @@
 <template>
+
   <form>
     <input 
       type="text" 
-      class="input-msg">
-    <button class="input-btn">
+      class="input-msg"
+      v-model="message">
+    <button class="input-btn" @click.prevent="sendMessage">
       <i class="fas fa-paper-plane"></i>
     </button>
   </form>
+  
 </template>
 
 <script>
+import { ref } from 'vue'
+
 export default {
   name: 'Input',
   setup() {
+    let message = ref('')
 
+    const sendMessage = () => {
+      new Message(message.value, Date)
+    }
+
+    return { message, sendMessage }
   }
 }
 </script>
