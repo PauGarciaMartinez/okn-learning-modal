@@ -1,7 +1,9 @@
 <template>
   <form>
     <input type="text" class="input-msg">
-    <button>Send</button>
+    <button>
+      <i class="fas fa-paper-plane"></i>
+    </button>
   </form>
 </template>
 

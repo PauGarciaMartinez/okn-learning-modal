@@ -2,7 +2,9 @@
 
   <header>
     <img src="@/assets/logo-okn.png" alt="OKN Learning logo">
-    <button class="modal-btn" @click="toggleModal">Chat</button>
+    <button class="modal-btn" @click="toggleModal">
+      <i class="fas fa-comments"></i>
+    </button>
   </header>
 
   <Modal v-if="visible" />
@@ -49,26 +51,34 @@ body {
 header {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin-top: -4rem;
 }
 
+/* BUTTON */
 .modal-btn {
-  background-color: rgb(56, 190, 231);
-  color: white;
   font-size: 1rem;
   font-weight: 600;
   width: 5rem;
-  height: 2rem;
+  height: 2.5rem;
   margin-right: 3rem;
+  background-color: rgb(56, 190, 231);
+  color: white;
   border: 0px solid black;
   border-radius: 0.3rem;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .modal-btn:hover {
-  
+  background-color: rgb(9, 96, 122);
+  transition: 0.2s;
+}
+
+.fa-comments {
+  font-size: 1.6rem;
 }
 
 </style>

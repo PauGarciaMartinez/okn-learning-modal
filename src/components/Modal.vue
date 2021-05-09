@@ -1,9 +1,8 @@
 <template>
-  <div class="backdrop">
-    <div class="modal">
-      <h2 class="title">{{ title }}</h2>
-      <Input />
-    </div>
+  <div class="backdrop"></div>
+  <div class="modal">
+    <h2 class="title">{{ title }}</h2>
+    <Input />
   </div>
 </template>
 
@@ -34,18 +33,18 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
-  filter: blur(2px);
-  z-index: 10;
+  background-color: rgba(56, 190, 231, 0.068);
+  backdrop-filter: blur(4px);
 }
 
 .modal {
+  position: relative;
   background-color: white;
   height: 90%;
   width: 60%;
   max-width: 1200px;
   margin: 0 auto;
   border: 1px solid black;
-  z-index: 2;
 }
 
 </style>
