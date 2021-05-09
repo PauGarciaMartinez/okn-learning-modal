@@ -34,7 +34,7 @@ export default {
 
     deliveries.value.push(delivery1, delivery2)
     
-    return { delivery1, delivery2, deliveries }
+    return { deliveries }
   }
 }
 </script>

@@ -7,6 +7,8 @@
     <h2 class="title">{{ title }}</h2>
 
     <Delivery />
+    <Message />
+    
     <Input />
   </div>
 </template>

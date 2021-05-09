@@ -1,6 +1,6 @@
 export class Message {
-  constructor(message, date) {
-    this.message = message;
+  constructor(content, date) {
+    this.content = content;
     this.date = date; 
   }
 }
