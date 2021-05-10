@@ -25,6 +25,7 @@ export default {
     const sendMessage = () => {
       const newMessage = ref(new Message(message.value, new Date, 'student'))
       emit('send-message', newMessage)
+      message.value = ''
     }
 
     return { message, sendMessage }
