@@ -21,3 +21,5 @@ this project, there are some comments that explain why I wrote
 that particular code. Hope it helps!
 ```
 
+You can check the deployment here: https://paugarciamartinez.github.io/okn-learning-modal/
+
