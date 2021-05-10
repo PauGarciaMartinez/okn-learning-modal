@@ -30,8 +30,6 @@
 
   </div>
 
-{{ message }}
-
 </template>
 
 <script>
@@ -39,7 +37,7 @@ import ChatMessage from '@/components/ChatMessage'
 import ChatDelivery from '@/components/ChatDelivery'
 import { Message } from '@/models/message.js'
 import { Delivery } from '@/models/delivery.js'
-import { watch, ref, onUpdated, watchEffect } from 'vue'
+import { watch, ref, onBeforeUpdate, onUpdated, watchEffect, toRef, computed } from 'vue'
 
 export default {
   name: 'Content',
@@ -65,24 +63,9 @@ export default {
 
     content.value.push(delivery1, message1, message2, delivery2, message3, message4)
 
-    let newMessage = ref(props.message)
-
-    watch(newMessage, () => {
-      content.value.push(props.message)
+    onBeforeUpdate(() => {
+      content.value.push(ref(props.message))
     })
-
-
-    /* onUpdated(() => {
-      content.value.push(props.message)
-    })  */
-
-    /* console.log(props)
-
-    console.log(newMessage.value)
-
-    watch(newMessage, () => {
-      content.value.push(newMessage.value)
-    }) */
 
     return { content }
   }

@@ -1,6 +1,9 @@
 <template>
+
   <div>
+
     <div class="backdrop" @click="closeModal"></div>
+
     <div class="modal">
       <div class="close-container">
         <i class="fas fa-times" @click="closeModal"></i>
@@ -12,10 +15,9 @@
       </div>
 
       <Input @send-message="message.value = $event" />
-
     </div>
-  </div>
 
+  </div>
 
 </template>
 
@@ -34,7 +36,7 @@ export default {
   setup(props, { emit }) {
     let title = ref('Comentarios')
 
-    let message = ref({})
+    let message = ref({name: 's'})
 
     const closeModal = () => {
       emit('close-modal', false)
@@ -95,5 +97,4 @@ export default {
   max-height: 500px;
   overflow-y: scroll;
 }
-
 </style>

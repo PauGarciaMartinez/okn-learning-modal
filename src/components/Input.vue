@@ -23,7 +23,7 @@ export default {
     let message = ref('')
 
     const sendMessage = () => {
-      const newMessage = ref(new Message(message.value, Date, 'student'))
+      const newMessage = ref(new Message(message.value, new Date, 'student'))
       emit('send-message', newMessage)
     }
 
