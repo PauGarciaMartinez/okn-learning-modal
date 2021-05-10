@@ -46,4 +46,16 @@ export default {
   font-size: 1.8rem;
   color: rgb(56, 190, 231);
 }
+
+@media only screen and (max-width: 590px) {
+  .delivery-wrapper {
+    flex-direction: column;
+    font-size: 0.9rem;
+  }
+
+  .fa-cloud-download-alt {
+    margin-bottom: 1rem;
+  }
+  
+}
 </style>

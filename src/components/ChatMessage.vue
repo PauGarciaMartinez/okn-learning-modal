@@ -83,4 +83,17 @@ export default {
   max-width: 70%;
   border-radius: 0.5rem;
 }
+
+@media only screen and (max-width: 590px) {
+  .thumbnail {
+    display: none;
+  }
+
+  .message-container,
+  .message-container2 {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+
+}
 </style>

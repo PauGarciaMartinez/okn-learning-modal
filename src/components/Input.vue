@@ -23,7 +23,7 @@ export default {
     let message = ref('')
 
     const sendMessage = () => {
-      const newMessage = ref(new Message(message.value, new Date, 'student'))
+      const newMessage = ref(new Message(message.value, new Date().toLocaleString(), 'student'))
       emit('send-message', newMessage)
       message.value = ''
     }
@@ -45,7 +45,7 @@ form {
 
 .input-msg {
   width: 95%;
-  height: 1.5rem;
+  height: 1.8rem;
   border: 2px solid rgba(128, 128, 128, 0.144);
   border-radius: 1rem;
   background-color: rgb(248, 248, 248);
@@ -55,7 +55,7 @@ form {
 
 .input-btn {
   width: 2.5rem;
-  height: 1.8rem;
+  height: 2rem;
   border: 0px solid black;
   border-radius: 0.5rem;
   background-color: rgb(56, 190, 231);

@@ -1,6 +1,6 @@
 <template>
 
-  <div v-for="item in content" :key="item">
+  <div v-for="item in content" :key="item" class="list-container">
     
     <!-- DELIVERY -->
     <div v-if="item.value.type">
@@ -37,7 +37,7 @@ import ChatMessage from '@/components/ChatMessage'
 import ChatDelivery from '@/components/ChatDelivery'
 import { Message } from '@/models/message.js'
 import { Delivery } from '@/models/delivery.js'
-import { watch, ref, onBeforeUpdate, onUpdated, watchEffect, toRef, computed } from 'vue'
+import { ref, onBeforeUpdate } from 'vue'
 
 export default {
   name: 'Content',
@@ -73,5 +73,7 @@ export default {
 </script>
 
 <style>
-
+.list-container {
+  margin: 1rem;
+}
 </style>

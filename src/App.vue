@@ -1,13 +1,15 @@
 <template>
   
   <header>
-    <img src="@/assets/logo-okn.png" alt="OKN Learning logo">
+    <img class="logo" src="@/assets/logo-okn.png" alt="OKN Learning logo">
     <button class="modal-btn" @click="toggleModal">
       <i class="fas fa-comments"></i>
     </button>
   </header>
 
-  <Modal v-show="visible" @close-modal="visible = $event" />
+  <transition name="fade">
+    <Modal v-show="visible" @close-modal="visible = $event" />
+  </transition>
 
 </template>
 
@@ -57,6 +59,10 @@ header {
   margin-top: -4rem;
 }
 
+.logo {
+  max-width: 220px;
+}
+
 /* BUTTON */
 .modal-btn {
   font-size: 1rem;
@@ -82,4 +88,26 @@ header {
   font-size: 1.6rem;
 }
 
+/* TRANSITION EFFECT */
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
+}
+
+@media only screen and (max-width: 590px) {
+  header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-btn {
+    margin-right: 0rem;
+  }
+  
+}
 </style>

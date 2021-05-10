@@ -10,7 +10,7 @@
       </div>
       <h2 class="title">{{ title }}</h2>
 
-      <div class="content-container">
+      <div class="content-container" ref="messagesList">
         <Content :message="message.value" />
       </div>
 
@@ -24,7 +24,7 @@
 <script>
 import Input from '@/components/Input'
 import Content from '@/components/Content'
-import { ref } from 'vue'
+import { ref, onUpdated, onMounted } from 'vue'
 
 export default {
   name: 'Modal',
@@ -42,7 +42,17 @@ export default {
       emit('close-modal', false)
     }
 
-    return { title, closeModal, message }
+    const messagesList = ref(null)
+    
+    onMounted(() => {
+      messagesList.value.scrollTop = messagesList.value.scrollHeight
+    })
+
+    onUpdated(() => {
+      messagesList.value.scrollTop = messagesList.value.scrollHeight
+    })
+
+    return { title, closeModal, message, messagesList }
   }
 }
 </script>
