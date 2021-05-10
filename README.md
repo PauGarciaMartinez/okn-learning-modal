@@ -1,19 +1,14 @@
-# okn-learning-modal
+# About this project
 
-## Project setup
+## Language and Framework
 ```
-npm install
-```
+For this project, I've used Javascript and Vue 3. I've decided to code following some Objected Oriented Programming, creating classes and constructors for the more structured components, like messages and deliveries. I've also used some plain CSS instead of SCSS, as I think it was unnecessary for the size of this app. 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
+Talking about Vue 3, I've used the Composition API for every script, using { ref } to bring reactivity to the elements. I've taken the communication between components via props and emits, as there was no need of using Vuex at this point, nor Vue Router. 
 ```
 
-### Compiles and minifies for production
+### Logic and code documentation
 ```
-npm run build
+In order to show the logic process that I've followed when coding this project, there are some comments that explain why I wrote that particular code. Hope it helps!
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
