@@ -25,26 +25,8 @@
 </template>
 
 <script>
-import { Message } from '@/models/message.js'
-import { ref } from 'vue'
-
 export default {
-  name: 'Message',
-  setup() {
-    let messages = ref([])
-
-    const message1 = ref(new Message('Buenas tardes, acabo de subir el primer archivo con el primer caso práctico, espero revisión.', '28 dic 2018/14:45', 'student'))
-
-    const message2 = ref(new Message('¡Gran trabajo Pau! Pero creo que deberías revisar el punto 3. Intenta añadir un poco más de contexto y un apartado final de conclusiones personales.', '29 dic 2018/10:11', 'teacher'))
-    
-    const message3 = ref(new Message('Realizados los cambios según feedback.', '30 dic 2018/8:22', 'student'))
-
-    const message4 = ref(new Message('Perfecto, excelente trabajo.', '30 dic 2018/15:25', 'teacher'))
-
-    messages.value.push(message1, message2, message3, message4)
-
-    return { messages }
-  }
+  name: 'ChatMessage',
 }
 </script>
 

@@ -47,12 +47,18 @@
 </template>
 
 <script>
+import ChatMessage from '@/components/ChatMessage'
+import ChatDelivery from '@/components/ChatDelivery'
 import { Message } from '@/models/message.js'
 import { Delivery } from '@/models/delivery.js'
 import { ref } from 'vue'
 
 export default {
   name: 'Content',
+  components: {
+    ChatMessage,
+    ChatDelivery
+  },
   setup() {
     let content = ref([])
 

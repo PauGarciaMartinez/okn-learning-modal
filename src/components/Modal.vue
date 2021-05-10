@@ -1,4 +1,5 @@
 <template>
+
   <div class="backdrop" @click="closeModal"></div>
   <div class="modal">
     <div class="close-container">
@@ -6,19 +7,16 @@
     </div>
     <h2 class="title">{{ title }}</h2>
 
-    <Delivery />
-    <Message />
-
     <Content />
     
     <Input />
+
   </div>
+
 </template>
 
 <script>
 import Input from '@/components/Input'
-import Message from '@/components/Message'
-import Delivery from '@/components/Delivery'
 import Content from '@/components/Content'
 import { ref } from 'vue'
 
@@ -27,8 +25,6 @@ export default {
   emits: ['close-modal'],
   components: {
     Input,
-    Message, 
-    Delivery,
     Content
   },
   setup(props, { emit }) {
