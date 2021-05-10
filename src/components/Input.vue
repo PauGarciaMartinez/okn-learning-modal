@@ -23,8 +23,11 @@ export default {
     let message = ref('')
 
     const sendMessage = () => {
+      if (!message.value) return
+
       const newMessage = ref(new Message(message.value, new Date().toLocaleString(), 'student'))
       emit('send-message', newMessage)
+      
       message.value = ''
     }
 
