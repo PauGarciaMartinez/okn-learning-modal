@@ -1,17 +1,21 @@
 <template>
+  <div>
+    <div class="backdrop" @click="closeModal"></div>
+    <div class="modal">
+      <div class="close-container">
+        <i class="fas fa-times" @click="closeModal"></i>
+      </div>
+      <h2 class="title">{{ title }}</h2>
 
-  <div class="backdrop" @click="closeModal"></div>
-  <div class="modal">
-    <div class="close-container">
-      <i class="fas fa-times" @click="closeModal"></i>
+      <div class="content-container">
+        <Content :message="message" />
+      </div>
+
+      <Input @send-message="sendMessage($event)" />
+
     </div>
-    <h2 class="title">{{ title }}</h2>
-
-    <Content />
-    
-    <Input />
-
   </div>
+
 
 </template>
 
@@ -24,17 +28,23 @@ export default {
   name: 'Modal',
   emits: ['close-modal'],
   components: {
-    Input,
-    Content
+    Content,
+    Input
   },
   setup(props, { emit }) {
     let title = ref('Comentarios')
+
+    let message = ref()
+
+    const sendMessage = (e) => {
+      message.value = e
+    }
 
     const closeModal = () => {
       emit('close-modal', false)
     }
 
-    return { title, closeModal }
+    return { title, closeModal, message, sendMessage }
   }
 }
 </script>
@@ -82,6 +92,11 @@ export default {
 .title {
   padding-bottom: 1rem;
   border-bottom: 2px solid black;
+}
+
+.content-container {
+  max-height: 500px;
+  overflow-y: scroll;
 }
 
 </style>

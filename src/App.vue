@@ -1,5 +1,5 @@
 <template>
-
+  
   <header>
     <img src="@/assets/logo-okn.png" alt="OKN Learning logo">
     <button class="modal-btn" @click="toggleModal">
@@ -7,7 +7,7 @@
     </button>
   </header>
 
-  <Modal v-if="visible" @close-modal="visible = $event" />
+  <Modal v-show="visible" @close-modal="visible = $event" />
 
 </template>
 

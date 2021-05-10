@@ -13,15 +13,18 @@
 </template>
 
 <script>
+import { Message } from '@/models/message.js'
 import { ref } from 'vue'
 
 export default {
   name: 'Input',
-  setup() {
+  emits: ['send-message'],
+  setup(props, { emit }) {
     let message = ref('')
 
     const sendMessage = () => {
-      new Message(message.value, Date)
+      const newMessage = ref(new Message(message.value, Date, 'student'))
+      emit('send-message', newMessage)
     }
 
     return { message, sendMessage }

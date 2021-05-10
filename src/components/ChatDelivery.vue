@@ -1,19 +1,19 @@
 <template>
 
-  <div class="delivery-wrapper" v-for="delivery in deliveries" :key="delivery">
+  <div class="delivery-wrapper">
     <div>
-      <h5>{{ delivery.value.version }}</h5>
-      <p class="delivery-name">{{ delivery.value.name }}</p>
+      <h5>
+        <slot name="version"></slot>
+      </h5>
+      <p class="delivery-name">
+        <slot name="name"></slot>
+      </p>
       <p>
-        {{ delivery.value.type }} 
-        {{ delivery.value.size }} - 
-        {{ delivery.value.date }}
+        <slot name="info"></slot>
       </p>
     </div>
     <div>
-      <a :href="delivery.value.url">
-        <i class="fas fa-cloud-download-alt"></i>
-      </a>
+      <slot name="download"></slot>
     </div>
   </div>
 

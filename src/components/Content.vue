@@ -4,20 +4,20 @@
     
     <!-- DELIVERY -->
     <div v-if="item.value.type">
-      <div>
-        <h5>{{ item.value.version }}</h5>
-        <p class="delivery-name">{{ item.value.name }}</p>
-        <p>
+      <ChatDelivery>
+        <template v-slot:version>{{ item.value.version }}</template>
+        <template v-slot:name>{{ item.value.name }}</template>
+        <template v-slot:info>
           {{ item.value.type }} 
           {{ item.value.size }} - 
           {{ item.value.date }}
-        </p>
-      </div>
-      <div>
-        <a :href="item.value.url">
-          <i class="fas fa-cloud-download-alt"></i>
-        </a>
-      </div>
+        </template>
+        <template v-slot:download>
+          <a :href="item.value.url">
+            <i class="fas fa-cloud-download-alt"></i>
+          </a>
+        </template>
+      </ChatDelivery>
     </div>
 
     <!-- MESSAGE -->
@@ -59,7 +59,8 @@ export default {
     ChatMessage,
     ChatDelivery
   },
-  setup() {
+  props: ['message'],
+  setup(props) {
     let content = ref([])
 
     const message1 = ref(new Message('Buenas tardes, acabo de subir el primer archivo con el primer caso práctico, espero revisión.', '28 dic 2018/14:45', 'student'))
@@ -75,6 +76,8 @@ export default {
     const delivery2 = ref(new Delivery('VERSIÓN 2', 'Título del archivo a subir 2.pdf', 'Documento/PDF', '(4.8 MB)', '30 dic 2018/8:22', 'url'))
 
     content.value.push(delivery1, message1, message2, delivery2, message3, message4)
+
+    if (props.message) content.value.push(props.message)
 
     return { content }
   }
