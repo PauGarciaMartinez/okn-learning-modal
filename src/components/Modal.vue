@@ -8,6 +8,8 @@
 
     <Delivery />
     <Message />
+
+    <Content />
     
     <Input />
   </div>
@@ -17,6 +19,7 @@
 import Input from '@/components/Input'
 import Message from '@/components/Message'
 import Delivery from '@/components/Delivery'
+import Content from '@/components/Content'
 import { ref } from 'vue'
 
 export default {
@@ -25,7 +28,8 @@ export default {
   components: {
     Input,
     Message, 
-    Delivery
+    Delivery,
+    Content
   },
   setup(props, { emit }) {
     let title = ref('Comentarios')
