@@ -20,14 +20,19 @@ export default {
   name: 'Input',
   emits: ['send-message'],
   setup(props, { emit }) {
+
+    // To store the text that the user introduces into the input field, I've used a two-way binded value using v-model
+
     let message = ref('')
+
+    // To create the message object, I've used a class constructor that takes the text from the input, a date object and a reference to the user. Then I reset the input field
 
     const sendMessage = () => {
       if (!message.value) return
 
       const newMessage = ref(new Message(message.value, new Date().toLocaleString(), 'student'))
       emit('send-message', newMessage)
-      
+
       message.value = ''
     }
 

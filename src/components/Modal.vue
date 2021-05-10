@@ -36,14 +36,18 @@ export default {
   setup(props, { emit }) {
     let title = ref('Comentarios')
 
-    let message = ref({name: 's'})
+    // To store the emit value that the input component has sent, I've created a reactive variable that I use as a prop for the content component
+    
+    let message = ref({})
 
     const closeModal = () => {
       emit('close-modal', false)
     }
 
+    // To always have the view at the bottom of the chat, I've set two lifecycle hooks: one for the already rendered mock elements and another one for every new message that pops up
+
     const messagesList = ref(null)
-    
+
     onMounted(() => {
       messagesList.value.scrollTop = messagesList.value.scrollHeight
     })

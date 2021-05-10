@@ -1,5 +1,7 @@
 <template>
 
+    <!-- To display both teacher and student messages from a single component, I've used a conditional that detects which user has sent the message, and then style accordingly -->
+
     <div v-if="item.author === 'student'" class="messages-wrapper">
       <div class="message-container">
         <p>

@@ -1,7 +1,9 @@
 <template>
 
+  <!-- To display all the messages and deliveries using a single and scalable component, I've created an array of mixed objects (both deliveries and messages) and then cycle and conditionally detect which class it is and render its component, using slots to fill the content for each one-->
+
   <div v-for="item in content" :key="item" class="list-container">
-    
+
     <!-- DELIVERY -->
     <div v-if="item.value.type">
       <ChatDelivery>
@@ -49,6 +51,7 @@ export default {
   setup(props) {
     let content = ref([])
 
+    // Mock content
     const message1 = ref(new Message('Buenas tardes, acabo de subir el primer archivo con el primer caso práctico, espero revisión.', '28 dic 2018/14:45', 'student'))
 
     const message2 = ref(new Message('¡Gran trabajo Pau! Pero creo que deberías revisar el punto 3. Intenta añadir un poco más de contexto y un apartado final de conclusiones personales.', '29 dic 2018/10:11', 'teacher'))
@@ -57,11 +60,13 @@ export default {
 
     const message4 = ref(new Message('Perfecto, excelente trabajo.', '30 dic 2018/15:25', 'teacher'))
 
-    const delivery1 = ref(new Delivery('VERSIÓN 1', 'Título del archivo a subir 1.pdf', 'Documento/PDF', '(3.8 MB)', '28 dic 2018/14:45', 'url'))
+    const delivery1 = ref(new Delivery('VERSIÓN 1', 'Título del archivo a subir 1.pdf', 'Documento/PDF', '(3.8 MB)', '28 dic 2018/14:45', '#'))
 
-    const delivery2 = ref(new Delivery('VERSIÓN 2', 'Título del archivo a subir 2.pdf', 'Documento/PDF', '(4.8 MB)', '30 dic 2018/8:22', 'url'))
+    const delivery2 = ref(new Delivery('VERSIÓN 2', 'Título del archivo a subir 2.pdf', 'Documento/PDF', '(4.8 MB)', '30 dic 2018/8:22', '#'))
 
     content.value.push(delivery1, message1, message2, delivery2, message3, message4)
+
+    // To detect changes on props, I've used a beforeUpdate hook, which allows to automatically detect new messages and push them to the existing array
 
     onBeforeUpdate(() => {
       content.value.push(ref(props.message))

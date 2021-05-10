@@ -23,6 +23,9 @@ export default {
     Modal
   },
   setup() {
+    
+    // To change display of the modal, I've used a boolean check and a function that reverts to the opposite of its current state
+
     let visible = ref(true)
 
     const toggleModal = () => {
