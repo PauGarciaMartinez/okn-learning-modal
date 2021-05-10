@@ -8,10 +8,10 @@
       <h2 class="title">{{ title }}</h2>
 
       <div class="content-container">
-        <Content :message="message" />
+        <Content :message="message.value" />
       </div>
 
-      <Input @send-message="sendMessage($event)" />
+      <Input @send-message="message.value = $event" />
 
     </div>
   </div>
@@ -34,17 +34,13 @@ export default {
   setup(props, { emit }) {
     let title = ref('Comentarios')
 
-    let message = ref()
-
-    const sendMessage = (e) => {
-      message.value = e
-    }
+    let message = ref({})
 
     const closeModal = () => {
       emit('close-modal', false)
     }
 
-    return { title, closeModal, message, sendMessage }
+    return { title, closeModal, message }
   }
 }
 </script>
@@ -63,9 +59,10 @@ export default {
   position: relative;
   background-color: white;
   height: 90%;
-  width: 60%;
+  width: 70%;
   max-width: 1000px;
   margin: 0 auto;
+  margin-top: -1.5rem;
   padding: 2rem;
   border-radius: 0.5rem;
   box-shadow: 5px 5px 10px rgb(218, 218, 218);

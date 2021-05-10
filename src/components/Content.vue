@@ -21,28 +21,16 @@
     </div>
 
     <!-- MESSAGE -->
-    <div v-else>    
-      <div v-if="item.value.author === 'student'" class="messages-wrapper">
-        <div class="message-container">
-          <p>{{ item.value.content }}</p>
-          <small>{{ item.value.date }}</small>
-        </div>
-        <div class="thumbnail">
-          <img src="@/assets/student-profile.jpeg" alt="Student's profile photo">
-        </div>
-      </div>
-      <div v-else class="messages-wrapper2">
-        <div class="thumbnail">
-          <img src="@/assets/teacher-profile.jpeg" alt="Teacher's profile photo">
-        </div>
-        <div class="message-container2">
-          <p>{{ item.value.content }}</p>
-          <small>{{ item.value.date }}</small>
-        </div>
-      </div>
+    <div v-else>
+      <ChatMessage :item="item.value">
+          <template v-slot:content>{{ item.value.content }}</template>
+          <template v-slot:date>{{ item.value.date }}</template>
+      </ChatMessage>    
     </div>
 
   </div>
+
+{{ message }}
 
 </template>
 
@@ -51,7 +39,7 @@ import ChatMessage from '@/components/ChatMessage'
 import ChatDelivery from '@/components/ChatDelivery'
 import { Message } from '@/models/message.js'
 import { Delivery } from '@/models/delivery.js'
-import { ref } from 'vue'
+import { watch, ref, onUpdated, watchEffect } from 'vue'
 
 export default {
   name: 'Content',
@@ -77,7 +65,24 @@ export default {
 
     content.value.push(delivery1, message1, message2, delivery2, message3, message4)
 
-    if (props.message) content.value.push(props.message)
+    let newMessage = ref(props.message)
+
+    watch(newMessage, () => {
+      content.value.push(props.message)
+    })
+
+
+    /* onUpdated(() => {
+      content.value.push(props.message)
+    })  */
+
+    /* console.log(props)
+
+    console.log(newMessage.value)
+
+    watch(newMessage, () => {
+      content.value.push(newMessage.value)
+    }) */
 
     return { content }
   }

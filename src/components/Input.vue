@@ -43,7 +43,7 @@ form {
 }
 
 .input-msg {
-  width: 90%;
+  width: 95%;
   height: 1.5rem;
   border: 2px solid rgba(128, 128, 128, 0.144);
   border-radius: 1rem;

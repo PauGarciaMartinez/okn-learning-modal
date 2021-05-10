@@ -1,32 +1,39 @@
 <template>
 
-  <div v-for="msg in messages" :key="msg">
-    <div v-if="msg.value.author === 'student'" class="messages-wrapper">
+    <div v-if="item.author === 'student'" class="messages-wrapper">
       <div class="message-container">
-        <p>{{ msg.value.content }}</p>
-        <small>{{ msg.value.date }}</small>
+        <p>
+          <slot name="content"></slot>
+        </p>
+        <small>
+          <slot name="date"></slot>
+        </small>
       </div>
       <div class="thumbnail">
         <img src="@/assets/student-profile.jpeg" alt="Student's profile photo">
       </div>
     </div>
+
     <div v-else class="messages-wrapper2">
       <div class="thumbnail">
         <img src="@/assets/teacher-profile.jpeg" alt="Teacher's profile photo">
       </div>
       <div class="message-container2">
-        <p>{{ msg.value.content }}</p>
-        <small>{{ msg.value.date }}</small>
+        <p>
+          <slot name="content"></slot>
+        </p>
+        <small>
+          <slot name="date"></slot>
+        </small>
       </div>
     </div>
-    
-  </div>
   
 </template>
 
 <script>
 export default {
   name: 'ChatMessage',
+  props: ['item']
 }
 </script>
 
@@ -51,6 +58,7 @@ export default {
 
 .thumbnail {
   max-width: 50px;
+  margin-right: 1rem;
 }
 
 .thumbnail img {
