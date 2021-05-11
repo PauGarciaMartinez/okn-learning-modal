@@ -63,33 +63,36 @@ export default {
 
 <style>
 .modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   padding: 5rem, 0;
-  max-height: 730px;
 }
 
 .backdrop {
   position: absolute;
+  top: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: rgba(56, 190, 231, 0.068);
   backdrop-filter: blur(4px);
 }
 
 .modal {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
   background-color: white;
-  height: 90%;
+  height: 70%;
   width: 70%;
   max-width: 1000px;
   margin: 0 auto;
-  margin-top: 5rem;
   padding: 2rem;
   border-radius: 0.5rem;
   box-shadow: 5px 5px 10px rgb(218, 218, 218);
