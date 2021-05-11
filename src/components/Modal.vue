@@ -65,6 +65,8 @@ export default {
 .modal-container {
   position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
   padding: 5rem, 0;
 }
 
