@@ -1,6 +1,6 @@
 <template>
 
-  <div>
+  <div class="modal-container">
 
     <div class="backdrop" @click="closeModal"></div>
 
@@ -62,6 +62,12 @@ export default {
 </script>
 
 <style>
+.modal-container {
+  position: absolute;
+  top: 0;
+  padding: 5rem, 0;
+}
+
 .backdrop {
   position: absolute;
   top: 0;
